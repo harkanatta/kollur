@@ -1,0 +1,75 @@
+---
+title: "Æðarvarpið á Skagaströnd"
+subtitle: "Eider duck colony in Skagaströnd skʰaːɣastrœn̥d "
+author: "<br><br>Valtýr og Óli &nbsp;`r anicon::faa('twitter', animate='float', rtext='@sson_valtyr')`"
+date: "<br><br>`r format(Sys.time(), '%e. %B %Y')`"
+lang: is
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["kunoichi", "ninjutsu" , "assets/ninpo.css"]
+    self_contained: false
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: split-70 hide-slide-number
+background-image: url("bkgs/IMG_2227.jpg")
+background-size: cover
+
+.column.slide-in-left[
+.sliderbox.vmiddle.shade_main.center[
+.font5[Æðavarpið á Skagaströnd]]]
+.column[
+]
+
+---
+
+layout: false
+class: split-33 with-thick-border
+
+.column.bg-main1[.content.vmiddle[
+.center[
+#Æðarhreiður og gönguleiðir 2017-19
+]
+]]
+.column[.content[
+# Skagaströnd [skʰaːɣastrœn̥d]
+```{r echo=FALSE, warning=FALSE, out.width='100%', message=FALSE}
+library(raster)
+library(mapview)
+library(magrittr)
+litir=c("#e05502","#28c1ff","#fbed87","#8e4866","#efa5c8","lightgrey")
+hreidur <- shapefile("kort/hreidur2017.shp")
+hreidur18 <- shapefile("kort/hreidur2018.shp")
+hreidur19 <- shapefile("kort/hreidur2019.shp")
+ganga <- shapefile("kort/ganga2017.shp")
+ganga19 <- shapefile("kort/ganga2019.shp")
+Hús <- shapefile("kort/mannahreidur.shp")
+hreidur <- raster::crop(hreidur,extent(ganga))
+img <- "https://github.com/harkanatta/ssnv_trident/blob/master/graphs/tvologo.jpg?raw=true"
+map <- mapview(hreidur,map.types="Stamen.Watercolor",cex=5,color=litir[1],col.regions=litir[1])+mapview(ganga,color=litir[2])+mapview(hreidur18,color=litir[3],col.regions=litir[3])+mapview(hreidur19,color=litir[4],col.regions=litir[4])+mapview(ganga19,color=litir[5])+mapview(Hús,color=litir[6],col.regions=litir[6])
+map %>% leafem::addLogo(img, width = '20%', height = '25%',offset.y = 20,offset.x = 80,alpha = 0.7) %>% leaflet.extras::addFullscreenControl(pseudoFullscreen = T)
+
+```
+]]
+---
+
+class: bg-main1 
+
+# Æðavarpið á Skagaströnd
+.font2[
+* .yellow[Hestamannafélagið] á landið 
+* Óli sér um æðavarpið og safnar GPS punktum
+* Það eru áætlanir um að fara í skógrækt í kringum .yellow[Skagaströnd]
+* .yellow[Skógrækt] í kringum þorpið er mikilvæg en við vonum að varpinu verði ekki raskað
+]
+
