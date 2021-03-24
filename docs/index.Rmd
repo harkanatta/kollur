@@ -1,7 +1,7 @@
 ---
 title: "Æðarvarpið á Skagaströnd"
-subtitle: "Eider duck colony in Skagaströnd skʰaːɣastrœn̥d "
-author: "<br><br>Valtýr og Óli &nbsp;`r anicon::faa('twitter', animate='float', rtext='@sson_valtyr')`"
+subtitle: "Eider duck colony in Skagaströnd (skʰaːɣastrœn̥d) "
+author: "<br><br>Varpið hans Óla"
 date: "<br><br>`r format(Sys.time(), '%e. %B %Y')`"
 lang: is
 output:
@@ -54,7 +54,7 @@ Hreidur19 <- shapefile("kort/hreidur2019.shp")
 Ganga17 <- shapefile("kort/ganga2017.shp")
 Ganga19 <- shapefile("kort/ganga2019.shp")
 #Hús <- shapefile("kort/mannahreidur.shp")
-Hreidur17 <- raster::crop(hreidur,extent(Ganga17))
+Hreidur17 <- raster::crop(Hreidur17,extent(Ganga17))
 img <- "https://github.com/harkanatta/ssnv_trident/blob/master/graphs/tvologo.jpg?raw=true"
 map <- mapview(Hreidur17,map.types="Stamen.Watercolor",cex=5,color=litir[1],col.regions=litir[1])+mapview(Ganga17,color=litir[2])+mapview(Hreidur18,color=litir[3],col.regions=litir[3])+mapview(Hreidur19,color=litir[4],col.regions=litir[4])+mapview(Ganga19,color=litir[5])#+mapview(Hús,color=litir[6],col.regions=litir[6])
 map %>% leafem::addLogo(img, width = '20%', height = '25%',offset.y = 20,offset.x = 80,alpha = 0.7) %>% leaflet.extras::addFullscreenControl(pseudoFullscreen = T)
@@ -67,7 +67,6 @@ class: bg-main1
 
 # Æðavarpið á Skagaströnd
 .font2[
-* .yellow[Hestamannafélagið] á landið 
 * Óli sér um æðavarpið og safnar .yellow[GPS punktum] fyrir hvert hreiður
 * Það eru áætlanir um að fara í skógrækt í kringum .yellow[Skagaströnd]
 * .yellow[Skógrækt] í kringum þorpið er mikilvæg en við vonum að varpinu verði ekki raskað
